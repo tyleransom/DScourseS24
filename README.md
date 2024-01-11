@@ -1,6 +1,6 @@
 # ECON 5253: Data Science for Economists (Spring 2024) #
 
-[![Join the chat at https://gitter.im/DScourseS24/community](https://badges.gitter.im/DScourseS24/community.svg)](https://gitter.im/DScourseS24/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/DScourseS24/community](https://badges.gitter.im/DScourseS24/community.svg)](https://matrix.to/#/!wChStqJuAGNdRzzJwr:gitter.im?via=gitter.im)
 
 |  | [Tyler Ransom](http://tyleransom.github.io) |
 |--------------|--------------------------------------------------------------|
