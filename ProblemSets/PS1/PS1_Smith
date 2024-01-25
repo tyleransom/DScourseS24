@@ -1,0 +1,36 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{PS1 ECON5253 }
+\author{Monica Smith}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+I had the opportunity to accept a Strategic Pricing Manager position with my existing employer, The Climate Control Group, about a year and half ago.  The manufacturing facilities for the commercial HVAC equipment are all in Oklahoma City. I have a strong skill set in analysis of our product's pricing, margin and impact to the overall and Profit and Loss statements. However, I realized quickly that I am very dependent on others for building charts or views with the background data. While PowerBI is helpful, I cannot do the background data scrubbing or refinement myself. There is also the back and forth of explaining what I need and want to see, and then having someone else interpret. This was one of the key drivers for my interest in going back for the Masters in Economics with Data emphasis. 
+
+In addition to the data analysis, I want to create internal boards or markers that I can use to more quickly identify trends or flags that can negatively impact our company margin or pricing. So much of my work today is manually checking information. I'd like to build the background framework to check these automatically and have notifications when problems are spotted. I also expect this will help me identify trends, both positive and negative, more quickly.
+
+What I just described above is what I'd like to start building as the project for this class. I recognize I'm in my infancy for this skill so I'd like to start with a very focused metric. Some ideas One idea is a system that checks the cost of a piece of manufactured equipment against the list price and flag when profit margin dips below a certain threshold. The cost data is constantly being updated because of the variable labor and overhead. Consequently, we sometimes have unusual costs due to labor complexity. I have also thought of some other broader trends in the business such as the relationship between applying special features to the product and the success of converting those to orders (ie, is there actually a higher correlation?) or tracking special price discounts and their frequency to order conversion.
+
+My goal for this class is to garner a better understanding for the tools available out there for me. Just in this first week I've downloaded or signed up for at least five new tools that I did not know existed or certainly would not have considered using. I also recognize that coding is a new skill set for me. I want to feel more comfortable using the companion tools to assist me and have my own code provide the tools and views I need for a very specific job within the company.
+
+\section{Equation}
+
+\[ a^2 + b^2 = c^2 \]
+
+\end{document}
