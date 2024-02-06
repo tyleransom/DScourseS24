@@ -1,0 +1,30 @@
+PS2_Schmidt
+
+\documentclass{article}
+
+\title{Main Tools of a Data Scientist}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+This document outlines the main tools utilized by data scientists.
+
+\begin{itemize}
+    \item Programming Languages (e.g., Python, R)
+    \item Data Visualization Tools (e.g., Matplotlib, ggplot2)
+    \item Machine Learning Libraries (e.g., scikit-learn, TensorFlow)
+    \item Statistical Analysis Software (e.g., SAS, SPSS)
+    \item Big Data Processing Frameworks (e.g., Apache Hadoop, Spark)
+    \item Database Management Systems (e.g., SQL, NoSQL databases)
+    \item Data Wrangling Tools (e.g., Pandas, dplyr)
+    \item Integrated Development Environments (IDEs) and Notebooks (e.g., Jupyter Notebook, RStudio)
+    \item Version Control Systems (e.g., Git)
+    \item Cloud Computing Platforms (e.g., AWS, Azure, Google Cloud)
+    \item Business Intelligence Tools (e.g., Tableau, Power BI)
+    \item Collaboration and Project Management Tools (e.g., Slack, Trello)
+\end{itemize}
+
+\end{document}
