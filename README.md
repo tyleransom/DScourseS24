@@ -123,10 +123,10 @@ Final grades will be assigned according to the standard cutoffs (90%+ for an A, 
 | Feb 29  | Th   | Using JuMP to optimize cool stuff ([Jupyter Notebook](https://github.com/tyleransom/DScourseS24/blob/master/LectureNotes/14-JuMP/JuMPintro.ipynb); [Julia Code](https://github.com/tyleransom/DScourseS24/blob/master/LectureNotes/14-JuMP/JuMPintro.jl)) (in previous years: Linear Algebra Introduction / Review ([Handout](https://minireference.com/static/tutorials/linear_algebra_in_4_pages.pdf))) | |
 | Mar 5   | T    | Introduction to optimization ([Notes](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/15-Opt-Intro/OptimizationIntro.pdf)) | [PS 5](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS5/PS5.pdf) |
 | Mar 7   | Th   | Writing and optimizing functions in R, Python, and Julia ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/16_17-Opt/16_17slides.html)) | |
-| Mar 12  | T    | **No Class** (Spring Break) | |
-| Mar 14  | Th   | **No Class** (Spring Break) | |
-| Mar 19  | T    | Writing and optimizing functions in R, Python, and Julia ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/16_17-Opt/16_17slides.html)) | [PS 6](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS6/PS6.pdf) |
-| Mar 21  | Th   | Debugging strategies and simulations ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/18-Simulation/18slides.html)) | |
+| Mar 12  | T    | Writing and optimizing functions in R, Python, and Julia ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/16_17-Opt/16_17slides.html)) | [PS 6](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS6/PS6.pdf) |
+| Mar 14  | Th   | Debugging strategies and simulations ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/18-Simulation/18slides.html)) | |
+| Mar 19  | T    | **No Class** (Spring Break) | |
+| Mar 21  | Th   | **No Class** (Spring Break) | |
 | Mar 26  | T    | Intro to Machine Learning ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/19-Intro-ML/19slides.html)) | [PS 7](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS7/PS7.pdf) |
 | Mar 28  | Th   | Training and validating models with `tidymodels` ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/20-tidymodels/20slides.html)) | |
 | Apr 2   | T    | Supervised ML: The 5 Tribes of Machine Learning ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/21-Five-Tribes/21slides.html)) | [PS 8](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS8/PS8.pdf) |
