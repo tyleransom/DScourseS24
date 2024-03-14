@@ -211,3 +211,65 @@ Suppose you get an error message. What do you do? Here's what I do.
 - But "got here" often works quite well
 
 - [Full instructions](https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio) for how to use RStudio's debugger
+    
+
+---
+# Bonus $\pi$ Day slides
+
+- Today is 3/14/2024, which is $\pi$ day
+
+- $\pi$ is the ratio of the circumference of a circle to its diameter
+
+- We've covered $\pi$ in a couple of contexts already this semester:
+
+   - The normal distribution has $\sqrt{2\pi\sigma^2}$ in its density function
+   
+   - The variance of the logistic distribution is $\frac{\pi^2}{3}$
+
+---
+# Why does the normal pdf contain $\sqrt{2\pi}$?
+
+- $\int_{-\infty}^\infty \exp\left(-x^2\right)dx = \sqrt{\pi}$, a foundational result in calculus
+ 
+- In the normal distribution, we modify this slightly:
+
+- $\int_{-\infty}^\infty\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)dx = \sigma\sqrt{2\pi}$
+
+- But pdf's must integrate to 1 over their support
+
+- So we divide by $\sqrt{2\pi\sigma^2}$ to make the normal pdf integrate to 1
+
+
+---
+# Why is the variance of the logistic distribution $\frac{\pi^2}{3}$?
+
+- The logistic distribution has a density function of $\frac{\exp(x)}{(1+\exp(x))^2}$
+
+- We can rewrite this equivalently as $\frac{1}{4} \text{sech}^2\left(\frac{x}{2}\right)$, which eases the calculus
+
+- The variance of a distribution is the second moment about the mean
+
+- $Var(X) = E(X^2) - E(X)^2$
+
+- Doing crazy calculus and algebra, we can show that $E(X^2) = \frac{\pi^2}{3}$ 
+- (note that $E(X) = 0$)
+
+
+---
+# Deriving $\pi$ by simulation
+
+- In a previous lecture, we used Monte Carlo simulation to estimate $\pi$ using Python
+
+- Here is the implementation in R:
+
+```r
+set.seed(314)
+n <- 1e8
+x <- runif(n)
+y <- runif(n)
+inside <- sum(x^2 + y^2 <= 1)
+pi_estimate <- 4 * inside / n
+print(pi_estimate)
+```
+
+- We have to have $10^8=$ 100 million draws to get accuracy at 4 significant figures
