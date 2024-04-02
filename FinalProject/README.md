@@ -23,10 +23,11 @@ The final project will be scored according to the following guidelines:
 | *Subtotal*                                                                                   | *80*   |
 | **In-class presentation**                                                                    |        |
 | 5 slides ([Beamer](https://www.overleaf.com/learn/latex/Beamer) or [RMarkdown](https://rmarkdown.rstudio.com/lesson-11.html)), consisting of the following:                             | 5      |
-| Introduction / explanation of topic                                                          | 5      |
-| Data (collection / description)                                                              | 5      |
-| Methods                                                                                      | 5      |
-| Findings                                                                                     | 5      |
+| Introduction / explanation of topic                                                          | 4      |
+| Data (collection / description)                                                              | 4      |
+| Methods                                                                                      | 4      |
+| Findings                                                                                     | 4      |
 | What did we learn / why is this important?                                                   | 5      |
+| In What Ways Did You Use AI Tools to Do Your Research Project?                               | 5      |
 | *Subtotal*                                                                                   | *30*   |
 | **Grand total**                                                                              | **150**|
