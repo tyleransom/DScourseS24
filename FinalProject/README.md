@@ -27,7 +27,7 @@ The final project will be scored according to the following guidelines:
 | Data (collection / description)                                                              | 4      |
 | Methods                                                                                      | 4      |
 | Findings                                                                                     | 4      |
-| What did we learn / why is this important?                                                   | 5      |
+| What did we learn / why is this important?                                                   | 4      |
 | In What Ways Did You Use AI Tools to Do Your Research Project?                               | 5      |
 | *Subtotal*                                                                                   | *30*   |
 | **Grand total**                                                                              | **150**|
