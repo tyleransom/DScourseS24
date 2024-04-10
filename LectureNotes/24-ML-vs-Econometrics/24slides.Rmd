@@ -179,7 +179,7 @@ The goal of econometrics is to make counterfactual predictions:
     
     - This is the infamous standard error that econometricians obsess over
 
-- One crazy thing about econometrics is that there is no format attention paid to model misspecification error! 
+- One crazy thing about econometrics is that there is no formal attention paid to model misspecification error! 
 
     - The functional form and specification of the model are assumed to be 100% correct, such that the only error that remains is the sampling error
     
