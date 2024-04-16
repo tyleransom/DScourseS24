@@ -4,7 +4,7 @@ library(magrittr)
 library(mlogit)
 data(Heating) # load data on residential heating choice in CA
 levels(Heating$depvar) <- c("gas","gas","elec","elec","elec")
-estim <- glm(depvar ~ income+agehed+rooms+region,
+estim <- glm(depvar ~ as.factor(income)+agehed+rooms+region,
              family=binomial(link='logit'),data=Heating)
 print(summary(estim))
 
@@ -12,14 +12,16 @@ print(summary(estim))
 Heating %<>% mutate(predLogit = predict(estim, newdata = Heating, type = "response"))
 Heating %>% `$`(predLogit) %>% summary %>% print
 
-estim2 <- glm(depvar ~ income+agehed+rooms+region,
+estim2 <- glm(depvar ~ as.factor(income)+agehed+rooms+region,
               family=binomial(link='probit'),data=Heating)
 print(summary(estim2))
 Heating %<>% mutate(predProbit = predict(estim2, newdata = Heating, type = "response"))
 Heating %>% `$`(predProbit) %>% summary %>% print
 
 # counterfactual policy
-estim$coefficients["income"] <- 4*estim$coefficients["income"]
+estim$coefficients["as.factor(income)5"] <- 4*estim$coefficients["as.factor(income)5"]
+estim$coefficients["as.factor(income)6"] <- 4*estim$coefficients["as.factor(income)6"]
+estim$coefficients["as.factor(income)7"] <- 4*estim$coefficients["as.factor(income)7"]
 Heating %<>% mutate(predLogitCfl = predict(estim, newdata = Heating, type = "response"))
 Heating %>% `$`(predLogitCfl) %>% summary %>% print
 

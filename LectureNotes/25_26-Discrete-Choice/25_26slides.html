@@ -4,6 +4,7 @@
     <title>Lectures 25–26</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tyler Ransom" />
+    <script src="25_26slides_files/header-attrs-2.14/header-attrs.js"></script>
     <link href="25_26slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="25_26slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="25_26slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -25,10 +26,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Lectures 25–26
+]
+.subtitle[
 ## Structural Models of Utility Maximization
+]
+.author[
 ### Tyler Ransom
+]
+.date[
 ### ECON 5253, University of Oklahoma
+]
 
 ---
 
@@ -98,7 +107,7 @@ Note: These slides are based on the introductory lecture of a PhD course taught 
 
 - The math really scares you
 
-- You don't like making assumptions
+- You don't like (explicitly) making assumptions
 
     - e.g. that decision-makers are rational
 
@@ -353,7 +362,7 @@ library(magrittr)
 library(mlogit)
 data(Heating) # load data on residential heating choice in CA
 levels(Heating$depvar) &lt;- c("gas","gas","elec","elec","elec")
-estim &lt;- glm(depvar ~ income+agehed+rooms+region,
+estim &lt;- glm(depvar ~ as.factor(income)+agehed+rooms+region,
              family=binomial(link='logit'),data=Heating)
 estim %&gt;% summary %&gt;% print
 ```
@@ -369,14 +378,18 @@ Estimated coefficients using the code in the previous slide:
 
 ```r
 Coefficients:
-              Estimate Std. Error z value Pr(&gt;|z|)
-(Intercept)  -0.599142   0.252032  -2.377   0.0174 *
-income        0.015579   0.027905   0.558   0.5766
-agehed       -0.006535   0.003342  -1.955   0.0505 .
-rooms         0.024291   0.026916   0.902   0.3668
-regionscostl -0.053096   0.126665  -0.419   0.6751
-regionmountn  0.041827   0.169787   0.246   0.8054
-regionncostl -0.219136   0.137692  -1.591   0.1115
+                    Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)        -1.031346   0.430835  -2.394   0.0167 *
+as.factor(income)3  0.379461   0.301553   1.258   0.2083  
+as.factor(income)4 -0.087949   0.314739  -0.279   0.7799  
+as.factor(income)5  0.287393   0.291833   0.985   0.3247  
+as.factor(income)6  0.197383   0.299092   0.660   0.5093  
+as.factor(income)7  0.251675   0.293767   0.857   0.3916  
+agehed             -0.011238   0.005807  -1.935   0.0530 .
+rooms               0.042742   0.046687   0.915   0.3599  
+regionscostl       -0.089907   0.217331  -0.414   0.6791  
+regionmountn        0.057200   0.289125   0.198   0.8432  
+regionncostl       -0.386541   0.239918  -1.611   0.1071  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -412,7 +425,7 @@ Heating %&gt;% `$`(predLogit) %&gt;% summary %&gt;% print
 For the probit model, we repeat the same code, except change the "link" function from "logit" to "probit"
 
 ```r
-estim2 &lt;- glm(depvar ~ income+agehed+rooms+region,
+estim2 &lt;- glm(depvar ~ as.factor(income)+agehed+rooms+region,
              family=binomial(link='probit'),data=Heating))
 estim2 %&gt;% summary %&gt;% print
 Heating %&lt;&gt;% mutate(predProbit = predict(estim2, newdata = Heating, type = "response"))
@@ -435,15 +448,17 @@ Heating %&gt;% `$`(predProbit) %&gt;% summary %&gt;% print
 ---
 # A simple counterfactual simulation
 
-- Suppose the coefficient increased by a factor of 4. What is the new share of gas vs. electricity usage?
+- Suppose the coefficient increased by a factor of 4 for the three highest income categories. What would be the new share of gas vs. electricity usage?
 
 ```r
-estim$coefficients["income"] &lt;- 4*estim$coefficients["income"]
+estim$coefficients["as.factor(income)5"] &lt;- 4*estim$coefficients["as.factor(income)5"]
+estim$coefficients["as.factor(income)6"] &lt;- 4*estim$coefficients["as.factor(income)6"]
+estim$coefficients["as.factor(income)7"] &lt;- 4*estim$coefficients["as.factor(income)7"]
 Heating %&lt;&gt;% mutate(predLogitCfl = predict(estim, newdata = Heating, type = "response"))
 Heating %&gt;% `$`(predLogitCfl) %&gt;% summary %&gt;% print
 ```
 
-This policy would increase electric usage by 7 percentage points (from 22\% to 29\%)
+This policy would increase electric usage by 8 percentage points (from 22\% to 30\%)
 
 
 
@@ -846,6 +861,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
