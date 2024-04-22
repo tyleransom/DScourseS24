@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lecture 27</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Tyler Ransom" />
+    <script src="27slides_files/header-attrs-2.14/header-attrs.js"></script>
+    <link href="27slides_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="27slides_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="27slides_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } },
+        });
+    </script>
+        <style>
+        .mjx-mrow a {
+            color: black;
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
+    <link rel="stylesheet" href="byu-colors.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Lecture 27
+]
+.subtitle[
+## How to use LLMs to turbo-charge your research productivity
+]
+.author[
+### Tyler Ransom
+]
+.date[
+### ECON 5253, University of Oklahoma
+]
+
+---
+
+
+
+
+# Today's plan
+
+1. Describe Large Language Models (LLMs, e.g. GPT-4)
+
+2. Practical tips for getting the most out of LLMs
+
+3. Walk through the workflow for producing a research paper
+
+4. Go through an example step by step
+
+
+
+
+---
+# What are Large Language Models (LLMs)?
+
+- LLMs are statistical models that can manipulate text (hence "language models")
+
+- "Large" in the sense that they have billions (trillions?) of parameters
+
+- Built on 5 steps (source: Cal Newport's podcast, [here](https://youtu.be/OVm2IoUUxdo?t=731)):
+
+1. .hi[Word Guessing] - recursive text completion
+    
+2. .hi[Relevant Word Matching] - find similar words in training data ("relevant" is secret)
+    
+3. .hi[Voting] - probabilistic selection of next word
+    
+4. .hi[Feature Detection] - strengthen vote based on context of next word
+    
+5. .hi[Self-training] - iterative refinement of feature detection process
+
+
+---
+# LLM components and behavior
+
+- Users interact with LLMs using .hi[prompts] (divided into "tokens" [word chunks])
+
+- .hi[context window:] no. of tokens LLM can take as input when generating responses
+
+- .hi[temperature:] randomness of responses (0 = deterministic, 1 = random)
+
+- .hi[hallucination:] LLMs can generate text that is not in the training data
+
+    - This is a feature, not a bug!
+
+    - But it does mean you need to be careful in interpreting output if you want something that is factually correct
+
+- Context window is currently a limiting factor in LLM performance (like computer RAM)
+
+
+---
+# What is the current state of the art?
+
+As of late April 2024, there are 4 major players:
+
+- OpenAI's [GPT-4](https://chat.openai.com/)
+
+- Google's [Gemini](https://gemini.google.com/app)
+
+- Meta's [Llama](https://llama.meta.com/)
+
+- Anthropic's [Claude](https://claude.ai/chats)
+
+Each product may have differing derivative features
+
+- Gemini can search YouTube; Bing Chat can use GPT-4
+
+- Each product has a "freemium" business model; $20/month unlocks full features
+
+
+
+---
+# Which chatbot should I use?
+
+- Each product on the previous slide has strengths and weaknesses
+
+    - You must experiment to find the best fit for your needs
+
+- Each product delivers more or less the same baseline performance
+
+- I use Gemini if I want a YouTube video summary
+
+- GPT-4 allows for custom "GPTs" that can automate interactions
+
+- Claude 3 Opus has large context windows and is my current favorite
+
+- I expect OpenAI to release a major update within 6 months, at which point I will probably drop Anthropic and switch to OpenAI
+
+
+
+---
+# Other AI-based tools
+
+- [Elicit.org](https://elicit.org/) and [Consensus.app](https://consensus.app/) for literature reviews
+
+- GitHub Copilot (free for academics!) for code completion
+
+    - LaTeX/RMarkdown files can be thought of as code
+    
+    - Code completion then becomes "writing completion" in these instances
+    
+- [lex.page](https://lex.page) for writing and editing
+
+- [Microsoft Copilot](https://copilot.microsoft.com/) for Word, PowerPoint, etc.
+
+- [Perplexity](https://perplexity.ai/) and [Bing Chat](https://bing.com/chat) for AI-augmented internet search
+
+
+---
+# Practical tips for using LLMs: prompts
+
+- Prompt quality matters, e.g. "show me how to run a regression in R" versus 
+
+&gt; can you give me code to run a regression of `mpg` on `weight`, `cylinders`, and `carburetor` using the `mtcars` sample dataset in R? please use tidyverse packages where possible
+
+- .hi[Metaprompting] can be the easiest rule of thumb, e.g.
+
+   - "give me a prompt for an LLM to get it to do the following task:"
+   
+     followed by
+   
+   - "what extra information do I need to include to best aid completion of the task?"
+
+
+---
+# Practical tips for using LLMs: variables in prompts
+
+- It's also possible to put variables in your prompt, like so:
+
+&gt; Write a personalized thank you letter for [customer] for buying [product]. The thank you letter is intended to be given with the product. Write the letter around how the product can help [customer] in a polite, glad, extremely authentic tone, and the reader should feel comfortable and connected to reach out to the company for feedback.
+
+&gt; Product = "a graphic design software called Hue with integrated AI tools
+
+&gt; Customer = "name: Steve, a graphic designer"
+
+
+---
+# Steps for completing a research paper
+
+- Choose a topic
+
+- Conduct a literature review
+
+- Develop a research design
+
+    - Experimental, quasi-experimental, observational, ...
+    
+- Collect and analyze data 
+
+    - Data cleaning, statistical modeling, hypothesis testing, ...
+    
+- Communicate your results
+
+    - Interpreting, writing, editing, visualizing, presenting, ...
+
+
+---
+
+# Step 1: Choose a research question
+
+- Find a topic that is interesting, relevant, and feasible
+
+- Get some ideas from the literature, professors, peers, news, blogs, etc.
+
+- Make sure your question is specific, clear, and answerable with data and analysis
+
+- The key here is to .hi[be curious]
+
+- .hi[LLM-based tools:]
+
+    - Prompt iteration for brainstorming (start with metaprompt)
+
+
+---
+
+# Step 2: Conduct a literature review
+
+- Find out what has been done before on your topic
+
+- Summarize and synthesize the main findings and arguments of the literature
+
+- Identify the gaps and controversies and how your research can contribute
+
+- .hi[LLM-based tools:]
+
+    - [Elicit.org](https://elicit.org/)
+    
+    - [Consensus.app](https://consensus.app/)
+    
+    - Upload a PDF of a paper and ask for a summary
+    
+    - Upload a document of abstracts and ask for a synthesis
+
+
+
+---
+
+# Step 2a: Build a reference database
+
+- Use BibTeX or similar to store references
+
+- LLMs are great at creating BibTeX entries from copy/pasted metadata
+
+- I created a "GPT" to do this, see [here](https://chat.openai.com/g/g-sB8ogOTh0-bibtex-builder) (requires paid OpenAI subscription)
+
+- .hi[LLM-based tools:]
+
+    - Copy/paste messy article metadata and ask for a BibTeX entry in a code block, then copy output into your BibTeX file
+
+
+---
+
+# Step 3: Develop a research design
+
+- Specify your data sources, variables, hypotheses, models, estimation methods, and tests
+
+- Is this a causal or predictive model? Is there missing data? Measurement error?
+
+- Explain how your data and methods can address your research question and test your hypotheses
+
+- Discuss the strengths and limitations of your data and methods
+
+- Consider data quality, sample size, measurement error, endogeneity, identification, robustness, etc.
+
+- .hi[LLM-based tools:] Prompt iteration (start with metaprompt)
+
+
+---
+
+# Step 4: Collect and analyze your data
+
+- Use appropriate software tools, such as R, Python, Stata, etc. to collect and analyze your data
+
+- Follow the steps of your research design and report your results in tables and graphs
+
+- Interpret your results in light of your hypotheses and the literature
+
+- Check for any errors or inconsistencies in your data and analysis
+
+- Perform any sensitivity analyses or robustness checks as needed
+
+- .hi[LLM-based tools:] Prompt iteration (start with metaprompt); ask for code
+
+
+---
+
+# Step 5: Write your research paper
+
+- Follow the structure and style of economics papers
+
+- Include an abstract, an introduction, a literature review, a data and methods section, a results section, a discussion section, a conclusion section, and a reference list
+
+- Follow the formatting and citation guidelines of your instructor or journal
+
+- Write clearly, concisely, logically, and persuasively
+
+- Use economic terminology and notation correctly and consistently
+
+- Support your claims with evidence and references
+
+- .hi[LLM-based tools:] See the slide after next
+
+---
+
+# Step 6: Revise and edit your research paper
+
+- Improve your paper's content, organization, clarity, accuracy, and presentation
+
+- Proofread your paper for any spelling, grammar, punctuation, or formatting errors
+
+- Check for any logical flaws, factual errors, or missing information in your paper
+
+- Seek feedback from your instructor or peers on your paper
+
+- Incorporate their suggestions as appropriate, but don't be too deferential
+
+- .hi[LLM-based tools:] See next slide
+
+---
+
+# LLM-based tools for writing and editing
+
+- Prompt iteration (start with metaprompt); asking for help on the following:
+    
+    - outlining (from scratch)
+    
+    - distilling scattered ideas into cogent paragraphs
+    
+    - simplifying existing paragraphs; reducing word count
+    
+- [lex.page](https://lex.page); GitHub Copilot; Microsoft Copilot (Word, PPT, etc.)
+
+- .hi[You should never blindly incorporate LLM writing into your own work]
+
+    - Always read and edit the output to ensure it is accurate and appropriate
+
+    - LLMs are tools, not substitutes for your own thinking and writing
+
+---
+
+# A step-by-step example with prompts
+
+For all the following content, I used Claude 3 Opus (Anthropic's premium model), except where explicitly stated
+
+1. Use a metaprompt to begin
+
+&gt; can you give me a prompt for how to ask for an outline of an empirical research paper on the topic of "what americans believe to be healthy diet and exercise habits". what sorts of details should i provide to get the most out of the answer?
+
+---
+
+# Metaprompt result
+
+.scroll-box-18[
+
+&gt; Certainly! Here's a prompt you can use to ask for an outline of an empirical research paper on the topic "What Americans believe to be healthy diet and exercise habits":
+&gt; 
+&gt; "I'm working on an empirical research paper about what Americans believe to be healthy diet and exercise habits. Could you please provide me with a detailed outline for this paper? The outline should include the main sections typically found in an empirical research paper, such as the introduction, literature review, methodology, results, discussion, and conclusion.
+&gt; 
+&gt; To help you create a more comprehensive outline, here are some additional details about my research:
+
+&gt; 1. The target population: American adults aged 18 and above
+&gt; 2. Sample size and sampling method: (Specify your sample size and the sampling method you used, e.g., random sampling, stratified sampling, etc.)
+&gt; 3. Data collection method: (Describe how you collected the data, e.g., surveys, interviews, focus groups, etc.)
+&gt; 4. Key variables: (List the main variables you investigated, such as demographic factors, knowledge about nutrition and exercise, sources of health information, etc.)
+&gt; 5. Data analysis techniques: (Mention the statistical methods or qualitative analysis techniques you employed to analyze the data)
+&gt; 
+&gt; Please include brief descriptions of what should be covered in each section of the outline. Also, if you have any suggestions for organizing the results section based on the key variables I mentioned, that would be great."
+&gt; 
+&gt; By providing these specific details about your research, you'll give the person you're asking a clearer understanding of your study, enabling them to create a more tailored and relevant outline for your empirical research paper.
+
+]
+
+
+---
+
+# Outline of paper
+
+.scroll-box-18[
+
+&gt; Here is a suggested outline for your empirical research paper on what Americans believe to be healthy diet and exercise habits:
+&gt; 
+&gt; I. Introduction
+&gt;    A. Background on the importance of healthy diet and exercise habits
+&gt;    B. Research question: What do American adults believe constitutes healthy diet and exercise habits?
+&gt;    C. Significance of the study
+&gt;    D. Brief overview of methodology
+&gt; 
+&gt; II. Literature Review
+&gt;     A. Overview of existing research on Americans' knowledge and beliefs about healthy eating and physical activity
+&gt;     B. Key findings from previous studies
+&gt;     C. Gaps in the literature that your study aims to address
+&gt; 
+&gt; III. Methodology 
+&gt;      A. Research design: Quantitative study using secondary survey data
+&gt;      B. Data source: Describe the survey dataset you will use for your secondary analysis (e.g. National Health and Nutrition Examination Survey, NHANES)
+&gt;      C. Sample: 
+&gt;         1. Target population: American adults aged 18+
+&gt;         2. Sample size and sampling method used in the original survey
+&gt;      D. Key variables:
+&gt;         1. Dependent variables: beliefs about what constitutes a healthy diet and exercise habits
+&gt;         2. Independent variables: demographic factors, knowledge about nutrition and exercise, sources of health information, etc.
+&gt;      E. Data analysis plan:
+&gt;         1. Descriptive statistics to summarize key variables
+&gt;         2. Regression analysis to examine associations between independent and dependent variables
+&gt;         3. Cross-tabulations to compare beliefs across demographic subgroups
+&gt; 
+&gt; IV. Results
+&gt;     A. Descriptive statistics
+&gt;        1. Sample characteristics
+&gt;        2. Summary of key variables 
+&gt;     B. Regression analysis findings
+&gt;        1. Associations between demographic factors and diet/exercise beliefs
+&gt;        2. Associations between nutrition/exercise knowledge and beliefs
+&gt;        3. Associations between health information sources and beliefs
+&gt;     C. Cross-tabulation results comparing beliefs by age, gender, race/ethnicity, education level, etc.
+&gt; 
+&gt; V. Discussion
+&gt;    A. Summary of key findings
+&gt;    B. Interpretation of results in the context of previous research 
+&gt;    C. Implications of findings for public health education and interventions
+&gt;    D. Strengths and limitations of the study
+&gt;    E. Directions for future research
+&gt; 
+&gt; VI. Conclusion
+&gt;     A. Recap of research question and significance
+&gt;     B. Main takeaways from the study
+&gt;     C. Concluding thoughts on promoting healthy diet and exercise habits
+&gt; 
+&gt; Regarding organizing the results section, I suggest structuring it around your key independent variables. Start with an overview of the sample characteristics and dependent variables using descriptive statistics. Then present your regression analysis findings, organized by the main categories of independent variables (demographics, knowledge, information sources). Follow this with cross-tabulation results comparing beliefs across key demographic subgroups.
+&gt; 
+&gt; For secondary data sources, I recommend looking into large nationally representative health surveys like:
+&gt; 
+&gt; - National Health and Nutrition Examination Survey (NHANES) 
+&gt; - National Health Interview Survey (NHIS)
+&gt; - Behavioral Risk Factor Surveillance System (BRFSS)
+&gt; 
+&gt; These surveys often include questions related to diet, exercise, and health knowledge/beliefs. You can access their data online through the CDC website or data repositories like ICPSR.
+&gt; 
+&gt; I hope this outline and suggestions are helpful for structuring your paper! Let me know if you have any other questions.
+
+]
+
+---
+
+# Literature review: Elicit
+
+.center[
+&lt;img src="elicit-output.png" width="92%" /&gt;
+]
+
+---
+
+# Literature review: Consensus
+
+.center[
+&lt;img src="consensus-output.png" width="75%" /&gt;
+]
+
+---
+
+# Help with data: metaprompt
+
+&gt; can you give me a prompt? i'm interested in using NHANES to analyze perceptions and behaviors related to diet and exercise and how they correlate with body weight. i'd like to use the r package "NHANES" and use r to do some preliminary analysis. what sorts of details should I provide in my prompt?
+
+
+---
+
+# Help with data: suggested prompt
+
+
+.scroll-box-18[
+
+&gt; Using the NHANES package in R, I would like to analyze the relationship between perceptions and behaviors related to diet and exercise and how they correlate with body weight. Please focus on the following variables from the 2015-2016 and 2017-2018 survey cycles:
+&gt; 
+&gt; - Dietary variables: total calorie intake, macronutrient composition (% calories from carbohydrates, protein, and fat)
+&gt; - Physical activity variables: minutes of moderate-to-vigorous physical activity per week
+&gt; - Body weight variables: BMI, waist circumference
+&gt; - Demographic variables: age, gender, race/ethnicity, socioeconomic status
+&gt; 
+&gt; Please conduct the following preliminary analyses:
+&gt; 
+&gt; 1. Descriptive statistics for each variable
+&gt; 2. Pearson correlations between dietary variables, physical activity, and body weight variables
+&gt; 3. Group comparisons (t-tests or ANOVA) of body weight variables by demographic factors
+&gt; 4. Linear regression models predicting BMI and waist circumference from dietary and physical activity variables
+&gt; 
+&gt; Please create relevant data visualizations, such as scatterplots, bar graphs, and histograms, to showcase the relationships between variables. Use ggplot2 for visualizations if possible.
+&gt; 
+&gt; Finally, provide a brief interpretation of the findings and potential conclusions based on the preliminary analysis.
+
+]
+
+
+---
+
+# Help with data: output of suggested prompt
+
+
+.scroll-box-18[
+```r
+library(NHANES)
+library(tidyverse)
+library(rstatix)
+
+# Load data from 2009-2010 and 2011-2012 cycles
+data &lt;- NHANES %&gt;%
+    filter(SurveyYr %in% c("2009_10", "2011_12"))
+
+# Select relevant variables
+selected_vars &lt;- c("Age", "Gender", "Race1", "Education", 
+                   "Poverty", "BMI", "BMICatUnder20yrs", "Diabetes",
+                   "PhysActiveDays", "AlcoholYear", "SmokeNow")
+
+data &lt;- data %&gt;%
+    select(all_of(selected_vars))
+
+# Clean and preprocess data
+data &lt;- data %&gt;%
+    mutate(
+        Gender = factor(Gender),
+        Race1 = factor(Race1),
+        Education = factor(Education),
+        BMICatUnder20yrs = factor(BMICatUnder20yrs),
+        Diabetes = factor(Diabetes),
+        SmokeNow = factor(SmokeNow)
+    )
+
+# 1. Descriptive statistics
+summary(data)
+
+# 2. Pearson correlations
+cor_vars &lt;- c("Age", "Poverty", "BMI", "PhysActiveDays", "AlcoholYear")
+cor_matrix &lt;- data %&gt;%
+    select(all_of(cor_vars)) %&gt;%
+    cor(use = "pairwise.complete.obs")
+
+print(cor_matrix)
+
+# 3. Group comparisons
+data %&gt;%
+    filter(!is.na(Gender)) %&gt;%
+    t_test(BMI ~ Gender) %&gt;%
+    print()
+
+data %&gt;%
+    filter(!is.na(Race1)) %&gt;%
+    anova_test(BMI ~ Race1) %&gt;%
+    print()
+
+# 4. Linear regression models
+lm_bmi &lt;- data %&gt;%
+    filter(Age &gt;= 20) %&gt;%
+    lm(BMI ~ Age + Poverty + PhysActiveDays + AlcoholYear + SmokeNow, data = .)
+
+summary(lm_bmi)
+
+# Visualizations
+data %&gt;%
+    ggplot(aes(x = Poverty, y = BMI)) + 
+    geom_point() + 
+    geom_smooth(method = "lm") +
+    labs(x = "Poverty", y = "BMI")
+
+data %&gt;%
+    filter(Age &lt; 20) %&gt;%
+    ggplot(aes(x = PhysActiveDays, y = BMI)) + 
+    geom_point() + 
+    geom_smooth(method = "lm") +
+    labs(x = "Days of Physical Activity", y = "BMI")
+
+data %&gt;%
+    filter(!is.na(Race1)) %&gt;%
+    ggplot(aes(x = Race1, y = BMI, fill = Race1)) + 
+    geom_boxplot() +
+    labs(x = "Race/Ethnicity", y = "BMI", fill = "Race/Ethnicity")
+```
+]
+
+
+---
+
+# Help with finding key variables: prompt
+
+.smallest[
+
+&gt; the list of variables in NHANES is below. Which ones do you think have to do with body weight, physical activity, and diet? [1] "ID" "SurveyYr" "Gender" "Age" "AgeDecade" [6] "AgeMonths" "Race1" "Race3" "Education" "MaritalStatus" [11] "HHIncome" "HHIncomeMid" "Poverty" "HomeRooms" "HomeOwn" [16] "Work" "Weight" "Length" "HeadCirc" "Height" [21] "BMI" "BMICatUnder20yrs" "BMI_WHO" "Pulse" "BPSysAve" [26] "BPDiaAve" "BPSys1" "BPDia1" "BPSys2" "BPDia2" [31] "BPSys3" "BPDia3" "Testosterone" "DirectChol" "TotChol" [36] "UrineVol1" "UrineFlow1" "UrineVol2" "UrineFlow2" "Diabetes" [41] "DiabetesAge" "HealthGen" "DaysPhysHlthBad" "DaysMentHlthBad" "LittleInterest" [46] "Depressed" "nPregnancies" "nBabies" "Age1stBaby" "SleepHrsNight" [51] "SleepTrouble" "PhysActive" "PhysActiveDays" "TVHrsDay" "CompHrsDay" [56] "TVHrsDayChild" "CompHrsDayChild" "Alcohol12PlusYr" "AlcoholDay" "AlcoholYear" [61] "SmokeNow" "Smoke100" "Smoke100n" "SmokeAge" "Marijuana" [66] "AgeFirstMarij" "RegularMarij" "AgeRegMarij" "HardDrugs" "SexEver" [71] "SexAge" "SexNumPartnLife" "SexNumPartYear" "SameSex" "SexOrientation" [76] "PregnantNow"
+
+]
+
+- Note: I gave it the output of the following R code:
+
+```r
+data(NHANES)
+df &lt;- NHANES
+names(df)
+```
+
+---
+
+# Help with finding key variables: output
+
+.scroll-box-18[
+
+&gt; Based on the list of variables provided, the following variables seem to be related to body weight, physical activity, and diet:
+&gt; 
+&gt; Body weight variables:
+&gt; - Weight
+&gt; - Height
+&gt; - BMI
+&gt; - BMICatUnder20yrs
+&gt; - BMI_WHO
+&gt; 
+&gt; Physical activity variables:
+&gt; - PhysActive
+&gt; - PhysActiveDays
+&gt; - TVHrsDay
+&gt; - CompHrsDay
+&gt; - TVHrsDayChild
+&gt; - CompHrsDayChild
+&gt; 
+&gt; Diet-related variables:
+&gt; - Alcohol12PlusYr
+&gt; - AlcoholDay
+&gt; - AlcoholYear
+&gt; 
+&gt; The dataset does not appear to have direct variables related to dietary intake, such as total calorie intake or macronutrient composition. However, the alcohol-related variables could be considered as part of dietary habits.
+&gt; 
+&gt; Additionally, some other variables that might have an indirect influence on body weight, physical activity, and diet include:
+&gt; 
+&gt; - Age
+&gt; - Gender
+&gt; - Race1
+&gt; - Education
+&gt; - Poverty
+&gt; - HealthGen
+&gt; - SmokeNow
+&gt; - Smoke100
+&gt; - Diabetes
+&gt; - PregnantNow
+&gt; 
+&gt; These variables could be used to explore potential confounding factors or effect modifiers in the relationship between body weight, physical activity, and diet.
+
+]
+
+
+---
+
+# Descriptive statistics: prompt
+
+&gt; i've got some R code so far (at the very bottom of this prompt). can you please give me more code to do the following: 
+
+&gt; 1. subset the data to remove anyone under age 18 or above age 75; 
+
+&gt; 2. produce two separate summary statistics tables (one for numeric variables and one for categorical variables) of the following list of variables: weight, height, bmi, physactive, tvhrsday, comphrsday, alcoholyear, smokenow, smokeage, gender, age, race3, hhincome, education 
+
+&gt; R code so far: # Load packages library(tidyverse) library(magrittr) library(NHANES) library(modelsummary) # load data data(NHANES) df &lt;- NHANES names(df) %&gt;% print
+
+
+---
+
+# Descriptive statistics: output (after some finagling)
+
+.scroll-box-12[
+```r
+library(NHANES)
+library(tidyverse)
+library(modelsummary)
+
+# Load data from 2009-2010 and 2011-2012 cycles
+data &lt;- NHANES %&gt;%
+    filter(SurveyYr %in% c("2009_10", "2011_12"))
+
+# Select relevant variables
+vars &lt;- c("Age", "Gender", "Race1", "Education", "Poverty", "BMI", 
+          "Diabetes", "PhysActive", "SleepHrsNight", "Smoke100",
+          "SmokeNow", "Marijuana", "TVHrsDay", "CompHrsDay", "AlcoholYear")
+
+data &lt;- data %&gt;%
+    select(all_of(vars))
+
+# Clean and preprocess data
+data &lt;- data %&gt;%
+    mutate(
+        Gender = factor(Gender),
+        Race1 = factor(Race1),
+        Education = factor(Education),
+        Diabetes = factor(Diabetes),
+        PhysActive = factor(PhysActive),
+        SmokeNow = factor(SmokeNow),
+        Marijuana = factor(Marijuana)
+    ) %&gt;%
+    filter(Age &gt;= 18 &amp; Age &lt;= 75)
+
+# 1. Descriptive statistics
+datasummary_skim(data, type = "numeric")
+datasummary_skim(data, type = "categorical")
+
+# 2. Regression models
+lm_bmi &lt;- lm(BMI ~ Age + Gender + Race1 + Education + Poverty + PhysActive + 
+                 SleepHrsNight + AlcoholYear + SmokeNow + TVHrsDay + CompHrsDay, 
+             data = data)
+
+# 3. Model summary
+modelsummary(lm_bmi,
+             title = "Predictors of BMI",
+             gof_omit = "IC|Log|Std|F|Adj|p\\.value|statistic",
+             notes = "Data: NHANES 2009-2012, Adults 18-75 years old")
+
+# 4. Coefficient plot
+modelplot(lm_bmi, coef_omit = "Inter") +
+    scale_color_discrete(guide = "none") +
+    xlab("Coefficient Estimate") + 
+    theme_bw() +
+    geom_vline(xintercept = 0, linetype = "dashed")
+```
+]
+
+.hi[Tip:] if the AI keeps giving you code that won't work, it can be helpful to upload the documentation of whatever package you're using (e.g. `modelsummary`) and then ask it to refer to that documentation when making the code
+
+---
+
+# Cleaning data
+
+- You will probably need to iterate on the descriptive statistics
+
+- You might find some issues with them, ask about how to clean the data, and then repeat the process
+
+- I'm going to assume the data is clean and move on to regression analysis
+
+
+---
+
+# Regression analysis: prompt
+
+&gt; can you write me code (in a codeblock) for how to regress BMI on PhysActive, Age, Race3, HHIncome, and Education? Please use the modelsummary() function to print the output to the console in markdown
+
+Note: it already gave us this code (or similar code) in the previous prompt even though we didn't explicitly ask for it!
+
+---
+
+# Regression analysis: output
+
+
+.scroll-box-18[
+```r
+library(NHANES)
+library(modelsummary)
+
+# Load data from 2009-2010 and 2011-2012 cycles
+data &lt;- NHANES %&gt;%
+ filter(SurveyYr %in% c("2009_10", "2011_12"))
+
+# Select relevant variables
+vars &lt;- c("Age", "Race3", "Education", "HHIncome", "BMI", "PhysActive")
+
+data &lt;- data %&gt;%
+ select(all_of(vars))
+
+# Clean and preprocess data
+data &lt;- data %&gt;%
+ mutate(
+   Race3 = factor(Race3),
+   Education = factor(Education),
+   PhysActive = factor(PhysActive)
+ ) %&gt;%
+ filter(Age &gt;= 18 &amp; Age &lt;= 75)
+
+# Regression model
+lm_bmi &lt;- lm(BMI ~ PhysActive + Age + Race3 + HHIncome + Education, 
+            data = data)
+
+# Model summary
+modelsummary(lm_bmi,
+            output = "markdown",
+            title = "Predictors of BMI",
+            gof_omit = "IC|Log|Std|F|Adj|p\\.value|statistic",
+            notes = "Data: NHANES 2009-2012, Adults 18-75 years old")
+```
+]
+
+
+---
+
+# Interpreting regression output: prompt
+
+&gt; can you help me interpret the coefficient on PhysActiveYes in the following regression output? 
+
+.scroll-box-12[
+
+```r
+Coefficients:
+                         Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)             25.579999   1.135622  22.525  &lt; 2e-16 ***
+PhysActiveYes           -1.200173   0.246766  -4.864 1.21e-06 ***
+Age                      0.039872   0.007983   4.995 6.23e-07 ***
+Race3Black               4.763254   0.608907   7.823 7.08e-15 ***
+Race3Hispanic            3.144666   0.670377   4.691 2.84e-06 ***
+Race3Mexican             3.718929   0.662087   5.617 2.12e-08 ***
+Race3White               2.836051   0.511532   5.544 3.21e-08 ***
+Race3Other               3.894542   0.869472   4.479 7.77e-06 ***
+HHIncome 5000-9999      -0.087116   1.078976  -0.081   0.9357    
+HHIncome10000-14999     -0.857914   0.920440  -0.932   0.3514    
+HHIncome15000-19999     -1.206566   0.919299  -1.312   0.1895    
+HHIncome20000-24999      0.324596   0.924769   0.351   0.7256    
+HHIncome25000-34999     -0.037917   0.872972  -0.043   0.9654    
+HHIncome35000-44999     -0.534508   0.874774  -0.611   0.5412    
+HHIncome45000-54999     -1.669672   0.893261  -1.869   0.0617 .  
+HHIncome55000-64999     -2.234146   0.925256  -2.415   0.0158 *  
+HHIncome65000-74999     -1.061909   0.916478  -1.159   0.2467    
+HHIncome75000-99999     -1.240629   0.870508  -1.425   0.1542    
+HHIncomemore 99999      -1.776248   0.838871  -2.117   0.0343 *  
+Education9 - 11th Grade -0.401476   0.651210  -0.617   0.5376    
+EducationHigh School     1.043322   0.622898   1.675   0.0940 .  
+EducationSome College    0.568005   0.613063   0.927   0.3543    
+EducationCollege Grad   -0.143375   0.634814  -0.226   0.8213    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.288 on 3040 degrees of freedom
+  (3901 observations deleted due to missingness)
+Multiple R-squared:  0.07063,	Adjusted R-squared:  0.0639 
+F-statistic:  10.5 on 22 and 3040 DF,  p-value: &lt; 2.2e-16
+```
+]
+
+
+---
+
+# Interpreting regression output: response
+
+.scroll-box-18[
+
+&gt; In the regression output, the coefficient on PhysActiveYes is -1.200173. This means that, holding all other variables constant, individuals who are physically active (PhysActive = "Yes") are expected to have a BMI that is 1.200173 units lower compared to those who are not physically active (PhysActive = "No", which is the reference category).
+&gt; 
+&gt; The negative sign of the coefficient indicates that being physically active is associated with a decrease in BMI, after controlling for age, race, household income, and education level.
+&gt; 
+&gt; The p-value for the PhysActiveYes coefficient is 1.21e-06, which is much smaller than the conventional significance levels (0.05 or 0.01). This suggests that the relationship between physical activity and BMI is statistically significant.
+&gt; 
+&gt; In summary, this regression model provides evidence that engaging in physical activity is associated with a lower BMI, even after accounting for other demographic and socioeconomic factors. However, it is important to note that this is an observational study, and the coefficient should not be interpreted as a causal effect.
+
+]
+
+Nice bonus at the end cautioning against us interpreting this as a causal effect!
+
+
+
+---
+
+# Formatting equation in LaTeX
+
+
+.center[
+&lt;img src="claude-eqn-1.png" width="75%" /&gt;
+]
+
+
+
+---
+
+# Writeup: prompt
+
+&gt; can you write up a three-paragraph analysis based on these regression results? I'd like you to consider the following questions: 
+&gt; 
+&gt; 1) is exercise negatively correlated with BMI? 
+&gt; 
+&gt; 2) is the effect practically significant (as opposed to statistically significant)? 
+&gt; 
+&gt; 3) does this model show that the relationship between physical activity and BMI is causal? 
+&gt; 
+&gt; 4) are there any other interesting correlations in the regression output that would be worth discusing?
+
+
+---
+
+# Writeup: output
+
+
+.scroll-box-18[
+
+&gt; Based on the regression results, there is a statistically significant negative association between physical activity and BMI. The coefficient for PhysActiveYes is -1.200173, indicating that, on average, individuals who engage in physical activity have a BMI that is 1.200173 units lower compared to those who do not, holding all other variables constant. The p-value for this coefficient is 1.21e-06, which is much smaller than the conventional significance levels of 0.05 or 0.01. This suggests that the relationship between physical activity and BMI is not likely to be due to chance alone.
+&gt; 
+&gt; While the relationship between physical activity and BMI is statistically significant, the practical significance of the effect should also be considered. A decrease of 1.200173 units in BMI may be meaningful at the population level, but the impact on an individual's health may vary depending on their initial BMI and other factors. It is essential to note that this model does not prove a causal relationship between physical activity and BMI. The regression results are based on observational data, and there may be other factors not included in the model that influence both physical activity and BMI. To establish causality, a randomized controlled trial would be necessary.
+&gt; 
+&gt; The regression output also reveals some other interesting correlations. Age has a positive and statistically significant association with BMI, indicating that older individuals tend to have higher BMIs. Compared to the reference category of Race3Asian, all other race categories have positive and statistically significant coefficients, suggesting that, on average, these groups have higher BMIs than Asian individuals. The coefficients for household income and education categories are mostly negative, hinting at a potential inverse relationship between socioeconomic status and BMI. However, not all of these coefficients are statistically significant, and further investigation may be needed to draw definitive conclusions about these relationships.
+
+]
+
+---
+
+# Asking for help finding motivational facts
+
+.scroll-box-18[
+
+.hi[Me:] what sort of motivating facts could I put in the introduction of my paper that would set up why my analysis is important?
+
+.hi[Claude 3 Opus:] 
+&gt; In the introduction of your paper, you can include several motivating facts to emphasize the importance of your analysis on the relationship between physical activity, BMI, and other demographic and socioeconomic factors. Here are some ideas:
+&gt; 
+&gt; 1. Prevalence of obesity: Mention the high prevalence of obesity in the United States (or globally, depending on the context of your paper). You can cite statistics from reputable sources such as the Centers for Disease Control and Prevention (CDC) or the World Health Organization (WHO).
+&gt; 
+&gt; 2. Health risks associated with high BMI: Discuss the various health risks associated with having a high BMI, such as increased risk of heart disease, type 2 diabetes, certain types of cancer, and other chronic conditions. This highlights the importance of understanding factors that influence BMI.
+&gt; 
+&gt; 3. Economic burden of obesity: Highlight the economic burden of obesity on healthcare systems and society as a whole. This can include direct medical costs and indirect costs such as reduced productivity and absenteeism.
+&gt; 
+&gt; 4. Physical activity as a modifiable risk factor: Emphasize that physical activity is a modifiable risk factor for obesity and related health conditions. This underscores the importance of studying the relationship between physical activity and BMI.
+&gt; 
+&gt; 5. Disparities in obesity rates: Discuss any known disparities in obesity rates based on demographic and socioeconomic factors such as race, ethnicity, income, and education. This sets the stage for your analysis of how these factors may interact with physical activity in influencing BMI.
+&gt; 
+&gt; 6. Limitations of existing research: Identify any limitations or gaps in existing research on the relationship between physical activity, BMI, and other factors. This helps justify the need for your analysis and highlights its potential contribution to the field.
+&gt; 
+&gt; By including these motivating facts in your introduction, you can effectively communicate the significance of your analysis and its potential implications for public health, healthcare policy, and future research.
+
+]
+
+
+
+---
+
+# Asking for help discussing policy conclusions
+
+.scroll-box-18[
+
+.hi[Me:] what sort of policy conclusions do you think would follow from my research findings?
+
+.hi[Claude 3 Opus:] 
+&gt; Based on your research findings, several policy conclusions and recommendations could be made to address the relationship between physical activity, BMI, and other demographic and socioeconomic factors:
+&gt; 
+&gt; 1. Promote physical activity: Given the significant negative association between physical activity and BMI, policymakers should prioritize initiatives that encourage and facilitate increased physical activity among the population. This could include investing in public infrastructure such as parks, bicycle lanes, and recreational facilities, as well as promoting active transportation and physical education in schools.
+&gt; 
+&gt; 2. Target interventions based on demographic and socioeconomic factors: Your findings suggest that certain demographic and socioeconomic groups may have higher BMIs on average. Policymakers could use this information to develop targeted interventions and programs that address the specific needs and barriers faced by these groups in adopting healthier lifestyles and maintaining a healthy weight.
+&gt; 
+&gt; 3. Address socioeconomic disparities: The potential inverse relationship between socioeconomic status (income and education) and BMI highlights the need to address socioeconomic disparities in obesity prevention and management. Policies could focus on improving access to healthy food options, healthcare services, and educational resources in disadvantaged communities.
+&gt; 
+&gt; 4. Collaborate with healthcare providers: Policymakers should work closely with healthcare providers to develop and implement evidence-based guidelines for obesity prevention and management. This could include promoting routine BMI screening, providing counseling on lifestyle modifications, and offering referrals to community-based programs that support physical activity and healthy eating habits.
+&gt; 
+&gt; 5. Fund further research: While your study provides valuable insights into the relationship between physical activity, BMI, and other factors, it also highlights the need for further research. Policymakers should support funding for studies that aim to establish causal relationships, identify effective interventions, and evaluate the long-term impact of policies and programs on obesity rates and related health outcomes.
+&gt; 
+&gt; 6. Foster multisectoral partnerships: Addressing the complex issue of obesity requires collaboration among various sectors, including government agencies, healthcare organizations, academic institutions, community groups, and the private sector. Policymakers should foster partnerships and initiatives that leverage the strengths and resources of these different stakeholders to develop comprehensive and sustainable solutions.
+&gt; 
+&gt; It is important to note that these policy conclusions are based on the specific findings of your study and should be considered in the context of the limitations of your analysis and the broader body of research on obesity prevention and management.
+
+]
+
+
+
+
+---
+
+# Suggestions for title and abstract
+
+
+.scroll-box-18[
+
+.hi[Me:] could you suggest for me a title and abstract of this report? please make sure the abstract is less than 150 words long
+
+.hi[Claude 3 Opus:] 
+&gt; Title:
+&gt; The Association Between Physical Activity, BMI, and Demographic and Socioeconomic Factors: An Analysis of NHANES Data
+&gt; 
+&gt; Abstract:
+&gt; This study investigates the relationship between physical activity, Body Mass Index (BMI), and various demographic and socioeconomic factors using data from the National Health and Nutrition Examination Survey (NHANES) 2009-2012. Linear regression analysis reveals a statistically significant negative association between physical activity and BMI, with physically active individuals having a 1.200173 unit lower BMI on average, holding other factors constant. Age and race/ethnicity also show significant associations with BMI. While the findings suggest that promoting physical activity could be an effective strategy for reducing BMI at the population level, the cross-sectional nature of the data precludes causal inferences. The study highlights the need for targeted interventions addressing demographic and socioeconomic disparities in obesity rates and emphasizes the importance of multisectoral collaborations in developing comprehensive solutions. Further research is needed to establish causal relationships and evaluate the long-term impact of policies and programs on obesity-related health outcomes.
+&gt; 
+&gt; Word count: 149
+
+]
+
+Note: actually 146 words (LLMs aren't good at word-counting)
+
+---
+
+# Killer feature: LaTeX from a picture (1/2)
+
+.center[
+&lt;img src="flowchart.png" width="50%" /&gt;
+]
+
+becomes ... 
+
+---
+
+# Killer feature: LaTeX from a picture (2/2)
+.scroll-box-18[
+```latex
+\begin{frame}
+\frametitle{Diagram of economic pathways to obesity}
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[node distance=2cm and 5cm, on grid]
+    \node[draw, rectangle] (tech) {Tech.\,change};
+    \node[draw, rectangle, above right=of tech] (lfp) {$\uparrow$ women LFP};
+    \node[draw, rectangle, right=of tech] (OC) {$\uparrow$ (money/time) cost of food};
+    \node[draw, rectangle, right=of OC] (calin) {$\downarrow$ calorie intake};
+    \node[draw, rectangle, below=of tech, yshift=-4cm] (income) {$\uparrow$ income};
+    \node[draw, rectangle, below right=of tech] (sedentary) {$\uparrow$ sedentary work/leisure};
+    \node[draw, rectangle, right=of sedentary] (calout) {$\downarrow$ calorie expenditure};
+    \node[draw, rectangle, right=of income] (opp) {$\uparrow$ opp cost of time};
+    \node[draw, rectangle, above right=of opp] (leisure) {$\downarrow$ leisure exercise};
+    \node[draw, rectangle, below right=of opp] (self) {$\downarrow$ self-prep food};
+    \node[draw, rectangle, right=of lfp] (self2) {$\downarrow$ self-prep food};
+    \node[draw, rectangle, right=of calin, yshift=-3cm] (weight) {$\uparrow$ body weight};
+    
+    \draw[-&gt;] (tech) to[out=45,in=180] (lfp);
+    \draw[-&gt;] (tech) to[out=0,in=180] (OC);
+    \draw[-&gt;] (tech) to[out=270,in=90] (income);
+    \draw[-&gt;] (tech) to[out=315,in=180] (sedentary);
+    \draw[-&gt;] (income) to[out=90,in=270] (tech);
+    \draw[-&gt;] (lfp) to[out=0,in=180] (self2);
+    \draw[-&gt;] (OC) to[out=0,in=180] (calin);
+    \draw[-&gt;] (sedentary) to[out=0,in=180] (calout);
+    \draw[-&gt;] (income) to[out=0,in=180] (opp);
+    \draw[-&gt;] (opp) to[out=45,in=180] (leisure);
+    \draw[-&gt;] (opp) to[out=315,in=180] (self);
+    \draw[-&gt;] (calin) to[out=0,in=120] (weight);
+    \draw[-&gt;] (calout) to[out=0,in=180] (weight);
+    \draw[-&gt;] (self) to[out=0,in=270] (weight);
+    \draw[-&gt;] (self2) to[out=0,in=90] (weight);
+    \draw[-&gt;] (leisure) to[out=0,in=180] (weight);
+\end{tikzpicture}
+}
+\end{frame}
+```
+]
+
+
+---
+
+# Killer feature: BibTeX entry from listed reference
+
+.center[
+&lt;img src="claude-bibtex-conversion.png" width="40%" /&gt;
+]
+
+Also works well for garbled metadata
+
+
+
+---
+
+# Killer feature: Summarizing multiple PDFs at once
+
+.center[
+&lt;img src="claude-lit-review.png" width="50%" /&gt;
+]
+
+---
+
+# Killer feature: Refactoring code (GPT-4) (1/2)
+
+.scroll-box-18[
+
+.hi[Me:] what ideas do you have to abstract this code? there are some ways in which it's not "loop-able" but ways in which it indeed is:
+
+```r
+#-------------------------------------------------------------------------------
+# load and clean exercise data from "What We Eat in America" surveys
+#    (source: NHANES, via USDA website)
+#-------------------------------------------------------------------------------
+
+# 2001-2002
+
+# Table 1. Nutrient Intakes, One Day, 2001-2002
+fpath &lt;- "../../../data/wweia/raw/Table_1_BIA_GEN_01.pdf"
+dc01 &lt;- pdfcleaner(fpath,1)
+for (i in 2:7){
+    dc01 &lt;- left_join(dc01, pdfcleaner(fpath,i), by = c("id"))
+}
+dc01 %&lt;&gt;% mutate(year = 2001) %&gt;%
+          select(-starts_with("Range"))%&gt;%
+          mutate(across(everything(), ~str_remove_all(.x, "\\*|#"))) %&gt;%
+          mutate(across(everything(), ~as.numeric(.x)))
+
+names01 &lt;- c("id", "N", "kcal", "protein", "carbs", "sugars", "fiber", "fat", 
+             "sat fat", "mono unsat fat", "poly unsat fat", "cholesterol",
+             "vit E", "retinol", "vit A", "alpha-carotene", "beta-carotene", 
+             "beta-cryptoxanthin", "lycopene", "lutein_zeaxanthin", "thiamin",
+             "riboflavin", "niacin", "vit B6", "folic acid", "food folate", 
+             "folate", "vit B12", "vit C", "vit K", "calcium", "phosphorus", 
+             "magnesium", "iron", "zinc", "copper", "sodium", "potassium", 
+             "selenium", "SFA 4:0", "SFA 6:0", "SFA 8:0", "SFA 10:0", 
+             "SFA 12:0", "SFA 14:0", "SFA 16:0", "SFA 18:0", "MFA 16:1", 
+             "MFA 18:1", "MFA 20:1", "MFA 22:1", "PFA 18:2", "PFA 18:3", 
+             "PFA 18:4", "PFA 20:4", "PFA 20:5", "PFA 22:5", "PFA 22:6", 
+             "caffeine", "theobromine", "alcohol", "year")
+names(dc01) &lt;- names01
+
+dc &lt;- dc01
+
+
+# 2003-2004
+
+# Table 1. Nutrient Intakes, One Day, 2003-2004
+fpath &lt;- "../../../data/wweia/raw/Table_1_NIF_GEN_03.pdf"
+dc03 &lt;- pdfcleaner(fpath,1)
+for (i in 2:7){
+    dc03 &lt;- left_join(dc03, pdfcleaner(fpath,i), by = c("id"))
+}
+
+dc03 %&lt;&gt;% mutate(year = 2003) %&gt;%
+    select(-starts_with("Range"))%&gt;%
+    mutate(across(everything(), ~str_remove_all(.x, "\\*|#"))) %&gt;%
+    mutate(across(everything(), ~as.numeric(.x)))
+
+names03 &lt;- c("id", "N", "kcal", "protein", "carbs", "sugars", "fiber", "fat", 
+             "sat fat", "mono unsat fat", "poly unsat fat", "cholesterol",
+             "vit E", "added vit E", "retinol", "vit A", "alpha-carotene", "beta-carotene", 
+             "beta-cryptoxanthin", "lycopene", "lutein_zeaxanthin", "thiamin",
+             "riboflavin", "niacin", "vit B6", "folic acid", "food folate", 
+             "folate", "vit B12", "added vit B12", "vit C", "vit K", "calcium", "phosphorus", 
+             "magnesium", "iron", "zinc", "copper", "sodium", "potassium", 
+             "selenium", "SFA 4:0", "SFA 6:0", "SFA 8:0", "SFA 10:0", 
+             "SFA 12:0", "SFA 14:0", "SFA 16:0", "SFA 18:0", "MFA 16:1", 
+             "MFA 18:1", "MFA 20:1", "MFA 22:1", "PFA 18:2", "PFA 18:3", 
+             "PFA 18:4", "PFA 20:4", "PFA 20:5", "PFA 22:5", "PFA 22:6", 
+             "caffeine", "theobromine", "alcohol", "year")
+names(dc03) &lt;- names03
+
+dc &lt;- bind_rows(dc, dc03)
+
+
+# 2005-2006
+
+# Table 1. Nutrient Intakes from Food, 2005-2006
+fpath &lt;- "../../../data/wweia/raw/Table_1_NIN_GEN_05.pdf"
+dc05 &lt;- pdfcleaner(fpath,1)
+for (i in 2:8){
+    dc05 &lt;- left_join(dc05, pdfcleaner(fpath,i), by = c("id"))
+}
+dc05 %&lt;&gt;% mutate(year = 2005) %&gt;%
+    select(-starts_with("Range"))%&gt;%
+    mutate(across(everything(), ~str_remove_all(.x, "\\*|#|\\-\\-"))) %&gt;%
+    mutate(across(everything(), ~as.numeric(.x))) %&gt;%
+    select(where(~ !all(is.na(.x)))) # gets rid of SE columns
+
+names05 &lt;- c("id", "N", "kcal", "protein", "carbs", "sugars", "fiber", "fat", 
+             "sat fat", "mono unsat fat", "poly unsat fat", "cholesterol",
+             "retinol", "vit A", "alpha-carotene", "beta-carotene", 
+             "beta-cryptoxanthin", "lycopene", "lutein_zeaxanthin", "thiamin",
+             "riboflavin", "niacin", "vit B6", "folic acid", "food folate", 
+             "folate", "choline", "vit B12", "added vit B12", "vit C", 
+             "vit E", "added vit E", "vit K", "calcium", "phosphorus", 
+             "magnesium", "iron", "zinc", "copper", "selenium", "potassium", "sodium", 
+             "caffeine", "theobromine", "alcohol", 
+             "SFA 4:0", "SFA 6:0", "SFA 8:0", "SFA 10:0", 
+             "SFA 12:0", "SFA 14:0", "SFA 16:0", "SFA 18:0", "MFA 16:1", 
+             "MFA 18:1", "MFA 20:1", "MFA 22:1", "PFA 18:2", "PFA 18:3", 
+             "PFA 18:4", "PFA 20:4", "PFA 20:5", "PFA 22:5", "PFA 22:6", 
+             "year")
+names(dc05) &lt;- names05
+
+dc &lt;- bind_rows(dc, dc05)
+
+
+# 2007-2008
+
+# Table 1. Nutrient Intakes from Food, 2007-2008
+fpath &lt;- "../../../data/wweia/raw/Table_1_NIN_GEN_07.pdf"
+dc07 &lt;- pdfcleaner(fpath,1)
+for (i in 2:8){
+    dc07 &lt;- left_join(dc07, pdfcleaner(fpath,i), by = c("id"))
+}
+dc07 %&lt;&gt;% mutate(year = 2007) %&gt;%
+    select(-starts_with("Range"))%&gt;%
+    mutate(across(everything(), ~str_remove_all(.x, "\\*|#|\\-\\-"))) %&gt;%
+    mutate(across(everything(), ~as.numeric(.x))) %&gt;%
+    select(where(~ !all(is.na(.x)))) # gets rid of SE columns
+
+names07 &lt;- c("id", "N", "kcal", "protein", "carbs", "sugars", "fiber", "fat", 
+             "sat fat", "mono unsat fat", "poly unsat fat", "cholesterol",
+             "retinol", "vit A", "alpha-carotene", "beta-carotene", 
+             "beta-cryptoxanthin", "lycopene", "lutein_zeaxanthin", "thiamin",
+             "riboflavin", "niacin", "vit B6", "folic acid", "food folate", 
+             "folate", "choline", "vit B12", "added vit B12", "vit C", "vit D",
+             "vit E", "added vit E", "vit K", "calcium", "phosphorus", 
+             "magnesium", "iron", "zinc", "copper", "selenium", "potassium", "sodium", 
+             "caffeine", "theobromine", "alcohol", 
+             "SFA 4:0", "SFA 6:0", "SFA 8:0", "SFA 10:0", 
+             "SFA 12:0", "SFA 14:0", "SFA 16:0", "SFA 18:0", "MFA 16:1", 
+             "MFA 18:1", "MFA 20:1", "MFA 22:1", "PFA 18:2", "PFA 18:3", 
+             "PFA 18:4", "PFA 20:4", "PFA 20:5", "PFA 22:5", "PFA 22:6", 
+             "year")
+names(dc07) &lt;- names07
+
+dc &lt;- bind_rows(dc, dc07)
+
+
+# 2009-2010
+
+# Table 1. Nutrient Intakes from Food, 2009-2010
+fpath &lt;- "../../../data/wweia/raw/Table_1_NIN_GEN_09.pdf"
+dc09 &lt;- pdfcleaner(fpath,1)
+for (i in 2:8){
+    dc09 &lt;- left_join(dc09, pdfcleaner(fpath,i), by = c("id"))
+}
+dc09 %&lt;&gt;% mutate(year = 2009) %&gt;%
+    select(-starts_with("Range"))%&gt;%
+    mutate(across(everything(), ~str_remove_all(.x, "\\*|#|\\-\\-"))) %&gt;%
+    mutate(across(everything(), ~as.numeric(.x))) %&gt;%
+    select(where(~ !all(is.na(.x)))) # gets rid of SE columns
+
+names09 &lt;- c("id", "N", "kcal", "protein", "carbs", "sugars", "fiber", "fat", 
+             "sat fat", "mono unsat fat", "poly unsat fat", "cholesterol",
+             "retinol", "vit A", "alpha-carotene", "beta-carotene", 
+             "beta-cryptoxanthin", "lycopene", "lutein_zeaxanthin", "thiamin",
+             "riboflavin", "niacin", "vit B6", "folic acid", "food folate", 
+             "folate", "choline", "vit B12", "added vit B12", "vit C", "vit D",
+             "vit E", "added vit E", "vit K", "calcium", "phosphorus", 
+             "magnesium", "iron", "zinc", "copper", "selenium", "potassium", "sodium", 
+             "caffeine", "theobromine", "alcohol", 
+             "SFA 4:0", "SFA 6:0", "SFA 8:0", "SFA 10:0", 
+             "SFA 12:0", "SFA 14:0", "SFA 16:0", "SFA 18:0", "MFA 16:1", 
+             "MFA 18:1", "MFA 20:1", "MFA 22:1", "PFA 18:2", "PFA 18:3", 
+             "PFA 18:4", "PFA 20:4", "PFA 20:5", "PFA 22:5", "PFA 22:6", 
+             "year")
+names(dc09) &lt;- names09
+
+dc &lt;- bind_rows(dc, dc09)
+```
+
+]
+
+
+---
+
+# Killer feature: Refactoring code (GPT-4) (2/2)
+
+.scroll-box-18[
+.hi[GPT-4:] 
+
+&gt; To abstract and streamline the provided R code, you can leverage functions and loops to handle repetitive tasks efficiently. This approach will make your code more compact, flexible, and easier to maintain, especially when dealing with similar data processing tasks across different datasets. Here's a structured approach:
+&gt; 
+&gt; 1. Define a Function for Data Processing: Create a function that encapsulates the repetitive steps of loading, cleaning, and preparing the data. This function should accept parameters for the specific parts that change with each dataset, such as the file path, the year, and the range of pages to process.
+&gt; 2. Use a Loop or Apply Function for Iteration: Instead of manually repeating the process for each dataset, use a loop or an apply function to iterate over a list or vector of parameters that define each dataset (e.g., file paths, years, page ranges).
+&gt; 3. Handling Column Names and Specific Operations: If the operations (e.g., selecting or mutating columns) vary significantly between datasets, you can include conditional logic within your function or handle these specifics outside of the loop, using the dataset year or other identifiers as a condition.
+&gt; 
+&gt; Here's how you could refactor your code following these principles:
+
+```r
+library(dplyr)
+library(stringr)
+library(purrr)
+
+# Adjusted function to include renaming
+process_dataset &lt;- function(fpath, year, page_range, new_names) {
+  data &lt;- pdfcleaner(fpath, page_range[1])
+  for (i in page_range[-1]) {
+    data &lt;- left_join(data, pdfcleaner(fpath, i), by = c("id"))
+  }
+  
+  data %&gt;%
+    mutate(year = year) %&gt;%
+    select(-starts_with("Range")) %&gt;%
+    mutate(across(everything(), ~str_remove_all(.x, "\\*|#|\\-\\-"))) %&gt;%
+    mutate(across(everything(), ~as.numeric(.x))) %&gt;%
+    select(where(~ !all(is.na(.x)))) %&gt;%
+    set_names(new_names) # Rename columns here
+}
+
+# Define datasets with column names
+datasets &lt;- list(
+  list(fpath = "../../../data/wweia/raw/Table_1_BIA_GEN_01.pdf", year = 2001, page_range = 2:7, new_names = names01),
+  list(fpath = "../../../data/wweia/raw/Table_1_NIF_GEN_03.pdf", year = 2003, page_range = 2:7, new_names = names03),
+  # Add more datasets here
+)
+
+# Assuming `names01`, `names03`, etc., are defined elsewhere in your script
+
+# Process each dataset using map_dfr to combine them into one dataframe
+dc &lt;- map_dfr(datasets, ~process_dataset(.x$fpath, .x$year, .x$page_range, .x$new_names))
+
+# `dc` now contains all combined and processed datasets with correctly renamed columns.
+```
+]
+
+
+
+---
+
+# So far, I've used LLMs to help me ...
+
+.small[
+- Fill out bureaucratic forms
+- Write code that automates grading
+- Write code that systematizes data analysis (for ease of replication)
+- Write code to create data visualizations
+- Write unit tests of code
+- Prepare discussion slides for a conference
+- Prepare peer review reports
+- Prepare this slide deck
+- Reduce word count of an abstract
+- Improve sentence clarity in a paper
+- Write survey questions that a survey methodologist would approve of
+- Explain poorly written abstracts / papers in simpler terms
+- Invert mathematical functions
+- ... not to mention a bunch of stuff in my personal life
+]
+
+
+---
+
+# Staying on top of new developments
+
+The following sources are helpful for keeping on top of new developments:
+
+- [One Useful Thing](https://www.oneusefulthing.org/) Substack by Ethan Mollick
+
+- [Marginal Revolution](https://marginalrevolution.com/) blog by Tyler Cowen &amp; Alex Tabarrok
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

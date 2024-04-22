@@ -135,7 +135,7 @@ Final grades will be assigned according to the standard cutoffs (90%+ for an A, 
 | Apr 11  | Th   | Machine learning vs. econometrics ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/24-ML-vs-Econometrics/24slides.html)) | |
 | Apr 16  | T    | Discrete choice modeling: static discrete choice ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/25_26-Discrete-Choice/25_26slides.html)) | [PS 10](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS10/PS10.pdf) |
 | Apr 18  | Th   | Discrete choice modeling: dynamic discrete choice ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/25_26-Discrete-Choice/25_26slides.html)) | |
-| Apr 23  | T    | Intro to Python? | [PS 11](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS11/PS11.pdf) |
+| Apr 23  | T    | Strategies for more powerfully utilizing LLMs ([Slides](https://raw.githack.com/tyleransom/DScourseS24/master/LectureNotes/27-GPT/27slides.html)) | [PS 11](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS11/PS11.pdf) |
 | Apr 25  | Th   | Final Project presentations ([Rubric](https://github.com/tyleransom/DScourseS24/blob/master/FinalProject/README.md)) | |
 | Apr 30  | T    | Final Project presentations ([Rubric](https://github.com/tyleransom/DScourseS24/blob/master/FinalProject/README.md)) | |
 | May 2   | Th   | Final Project presentations ([Rubric](https://github.com/tyleransom/DScourseS24/blob/master/FinalProject/README.md)) | [PS 12](https://raw.githack.com/tyleransom/DScourseS24/master/ProblemSets/PS12/PS12.pdf) |
